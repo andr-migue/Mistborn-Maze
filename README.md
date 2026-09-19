@@ -33,11 +33,42 @@ Hidden among the crypts and graves are five fragments of Lerasium, glowing with 
 
 ## Project Structure 📂
 
-- **assets/**: Contains game resource files.
-- **font/**: Contains the fonts used in the game.
-- **scenes/**: Contains the game scenes.
-- **scripts/**: Contains the C# scripts used in the game.
-- **soundtrack/**: Contains the game soundtrack.
+```
+assets/                     Raw game resources
+├── fonts/                  Fonts used by the UI
+├── music/                  Soundtrack, split into menu/ and game/ playlists
+└── sprites/                Sprite sheets and animation frames
+    ├── characters/         Playable character sheets
+    ├── enemies/            Enemy sheets
+    ├── hazards/            Traps, fire, mist and teleport
+    ├── items/              Gem and heart animation frames
+    ├── ui/                 Title and background artwork
+    └── world/              Tilesets for paths and walls
+
+scenes/                     Godot scenes
+├── characters/             Playable characters
+│   ├── animations/         AnimatedSprite2D per character
+│   └── previews/           Character-selection previews
+├── components/             Reusable nodes (movement, hit box, health box)
+├── enemies/                Wolf, spectre and skeleton
+├── game/                   Main game scene and maze board
+├── hazards/                Trap, fire, mist and teleport
+├── items/                  Gem and heart pickups
+├── players/                Player 1 and player 2 controllers
+├── ui/                     Start menu, intro and character select
+└── world/                  Path and wall tiles
+
+src/                        C# scripts, mirroring the scene layout
+├── autoload/               Singletons (GlobalData, SoundManager)
+├── characters/             One script per playable character
+├── components/             Movement, sensors, health and hit boxes
+├── enemies/                Enemy behaviour
+├── game/                   Board generation and camera setup
+├── hazards/                Trap, fire, mist and teleport behaviour
+├── items/                  Gem and heart behaviour
+├── players/                Player input handling
+└── ui/                     Menu, intro, pause, score and character select
+```
 
 ## Requirements 🛠️
 
@@ -74,7 +105,7 @@ Hidden among the crypts and graves are five fragments of Lerasium, glowing with 
 - **Pause.cs**: Manages the game's pause and the detection of winners.
 - **Menu.cs**: Controls the main game menu, including methods to navigate between menu options and change settings.
 - **Intro.cs**: Manages the game's introduction screen using a timer to gradually show the introduction text.
-- **SelectionPlayer.cs**: Manages the character selection screen, allowing navigation between characters and selecting playable characters.
+- **CharacterSelect.cs**: Manages the character selection screen, allowing navigation between characters and selecting playable characters.
 
 ### Movement and Collisions
 - **Movement.cs**: Enables the movement of entities.
@@ -89,7 +120,7 @@ Hidden among the crypts and graves are five fragments of Lerasium, glowing with 
 
 ### Traps, Enemies, and Items
 - **Fire.cs**: Controls the fire animation in the game.
-- **Gema.cs**: Manages the behavior of the gems in the game, including their collection and respawn.
+- **Gem.cs**: Manages the behavior of the gems in the game, including their collection and respawn.
 - **Heart.cs**: Controls the healing of players when they collect hearts, using events to detect collection and handle respawn.
 - **Mist.cs**: Controls the visibility of the mist in the game, using a timer to manage mist visibility when a character enters the area.
 - **Trap.cs**: Controls the traps in the game, using animations and timers to activate and deactivate traps.
