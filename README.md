@@ -36,7 +36,7 @@ Hidden among the crypts and graves are five fragments of Lerasium, glowing with 
 ```
 assets/                     Raw game resources
 ├── fonts/                  Fonts used by the UI
-├── music/                  Soundtrack, split into menu/ and game/ playlists
+├── music/                  Soundtrack (not versioned yet, see note below)
 └── sprites/                Sprite sheets and animation frames
     ├── characters/         Playable character sheets
     ├── enemies/            Enemy sheets
@@ -69,6 +69,10 @@ src/                        C# scripts, mirroring the scene layout
 ├── players/                Player input handling
 └── ui/                     Menu, intro, pause, score and character select
 ```
+
+> **Note on the soundtrack.** `assets/music/` is not tracked in this
+> repository yet, so a fresh clone runs without music. The game itself
+> works fine; `SoundManager` simply finds no tracks to play.
 
 ## Requirements 🛠️
 

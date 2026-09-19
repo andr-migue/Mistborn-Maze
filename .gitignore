@@ -10,3 +10,6 @@ obj/
 # Compiled game builds
 Executable/
 *.rar
+
+# Soundtrack: pendiente de subir, no versionado por ahora
+/assets/music/
